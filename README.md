@@ -43,6 +43,14 @@ Keyboards in the family are:
 
 See [document for firmware source code](./qmk_firmware/keyboards/keyball/readme.md).
 
+### build Firmware using Docker
+
+```console
+$ docker compose run --rm build
+```
+
+These scripts were created with reference to [this article](https://zenn.dev/tomori_k/articles/735de6e8a7b084).
+
 ### Pre-compiled Firmwares
 
 (TO BE DOCUMENTED)
