@@ -35,5 +35,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAP_CODE_DELAY 5
 
+// Enable automatic mouse layer feature
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
-#define AUTO_MOUSE_DEFAULT_LAYER 1
+#define AUTO_MOUSE_DEFAULT_LAYER 2
+#define AUTO_MOUSE_TIME 400
+
+// Define the number of layers
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+
+// Define tap and hold duration
+#define TAPPING_TERM 100
+
+// Make the hold/tap key easier to be recognized as a hold action.
+#define PERMISSIVE_HOLD
+// #define HOLD_ON_OTHER_KEY_PRESS
+
+// keyball unique configurations 
+// Set default CPI for the trackball
+#define KEYBALL_CPI_DEFAULT 1400
+
+// Set default scroll divider
+#define KEYBALL_SCROLL_DIV_DEFAULT 6
+
+// Enable scroll snap feature
+#define KEYBALL_SCROLLSNAP_ENABLE 2
