@@ -44,11 +44,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 // Define tap and hold duration
-#define TAPPING_TERM 100
+#define TAPPING_TERM 200
 
 // Make the hold/tap key easier to be recognized as a hold action.
-#define PERMISSIVE_HOLD
-// #define HOLD_ON_OTHER_KEY_PRESS
+// #define PERMISSIVE_HOLD
+#define HOLD_ON_OTHER_KEY_PRESS
 
 // keyball unique configurations 
 // Set default CPI for the trackball
