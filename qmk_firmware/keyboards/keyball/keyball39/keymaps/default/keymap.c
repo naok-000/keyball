@@ -40,14 +40,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [2] = LAYOUT(
     XXXXXXX  , XXXXXXX  , KC_LABK  , KC_RABK  , XXXXXXX  ,                                                              XXXXXXX  , XXXXXXX  , XXXXXXX        , XXXXXXX        , XXXXXXX  ,
     KC_LCTL  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              XXXXXXX  , XXXXXXX  , LGUI(KC_LBRC)  , LGUI(KC_RBRC)  , XXXXXXX  ,
-    KC_SLSH  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              XXXXXXX  , XXXXXXX  , MS_BTN1        , MS_BTN2        , XXXXXXX  ,
+    KC_SLSH  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              XXXXXXX  , XXXXXXX  , KC_MS_BTN1     , KC_MS_BTN2     , XXXXXXX  ,
     XXXXXXX  , XXXXXXX  , XXXXXXX  , KC_LSFT  , XXXXXXX  , XXXXXXX         ,                                 KC_RGUI  , KC_BSPC  ,                                              XXXXXXX  
   ),
 
   [3] = LAYOUT(
-    XXXXXXX  , LALT(KC_7)  , LALT(KC_8)  , LALT(KC_9)  , XXXXXXX     ,                                                  XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,
-    XXXXXXX  , LALT(KC_4)  , LALT(KC_5)  , LALT(KC_6)  , XXXXXXX     ,                                                  KC_LEFT  , KC_DOWN  , KC_UP    , KC_RIGHT , XXXXXXX  ,
-    RGB_RMOD , LALT(KC_1)  , LALT(KC_2)  , LALT(KC_3)  , LALT(KC_0)  ,                                                  XXXXXXX  , XXXXXXX  , MS_BTN1  , MS_BTN2  , XXXXXXX  ,
+    XXXXXXX  , LALT(KC_7)  , LALT(KC_8)  , LALT(KC_9)  , XXXXXXX     ,                                                  XXXXXXX  , XXXXXXX  , XXXXXXX     , XXXXXXX     , XXXXXXX  ,
+    XXXXXXX  , LALT(KC_4)  , LALT(KC_5)  , LALT(KC_6)  , XXXXXXX     ,                                                  KC_LEFT  , KC_DOWN  , KC_UP       , KC_RIGHT    , XXXXXXX  ,
+    RGB_RMOD , LALT(KC_1)  , LALT(KC_2)  , LALT(KC_3)  , LALT(KC_0)  ,                                                  XXXXXXX  , XXXXXXX  , KC_MS_BTN1  , KC_MS_BTN2  , XXXXXXX  ,
     XXXXXXX  , XXXXXXX     , XXXXXXX     , XXXXXXX     , XXXXXXX     , XXXXXXX       ,                       XXXXXXX  , XXXXXXX  ,                       XXXXXXX  
   ),
 
