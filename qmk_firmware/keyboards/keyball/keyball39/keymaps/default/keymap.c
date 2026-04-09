@@ -22,65 +22,50 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  // keymap for default (VIA)
+  [0] = LAYOUT_universal(
+    KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
+    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MINS  ,
+    KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_COMM  , KC_DOT   , KC_SLSH  ,
+    KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
+  ),
 
- [0] = LAYOUT_universal(
-  KC_Q            , KC_W    , KC_E    , KC_R    , KC_T    , KC_Y    , KC_U    , KC_I       , KC_O       , KC_P,
-  LCTL_T(KC_A)    , KC_S    , KC_D    , KC_F    , KC_G    , KC_H    , KC_J    , KC_K       , KC_L       , KC_SCLN,
-  LSFT_T(KC_Z)    , KC_X    , LT(2,KC_C), KC_V  , KC_B    , KC_N    , KC_M    , KC_BTN1    , KC_BTN2    , RSFT_T(KC_SLSH),
-  LT(3,KC_ESC)    , LALT_T(KC_NO), LGUI_T(KC_NO), LT(1,KC_LNG1), KC_SPC, KC_TAB, KC_ENT, KC_BSPC, KC_NO, KC_NO, KC_NO, MO(3)
- ),
+  [1] = LAYOUT_universal(
+    KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_RBRC  ,                            KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   ,
+    KC_F5    , KC_EXLM  , S(KC_6)  ,S(KC_INT3), S(KC_8)  ,                           S(KC_INT1), KC_BTN1  , KC_PGUP  , KC_BTN2  , KC_SCLN  ,
+    S(KC_EQL),S(KC_LBRC),S(KC_7)   , S(KC_2)  ,S(KC_RBRC),                            KC_LBRC  , KC_DLR   , KC_PGDN  , KC_BTN3  , KC_F11   ,
+    KC_INT1  , KC_EQL   , S(KC_3)  , _______  , _______  , _______  ,      TO(2)    , TO(0)    , _______  , KC_RALT  , KC_RGUI  , KC_F12
+  ),
 
- [1] = LAYOUT_universal(
-  KC_TAB          , KC_LCBR , KC_HASH , KC_RCBR , KC_EXLM , KC_QUES , KC_AT   , KC_TILD    , KC_RPRN    , KC_MINS,
-  KC_LCTL         , KC_TILD , KC_LBRC , KC_RBRC , KC_QUES , KC_DQUO , KC_LPRN , KC_PLUS    , KC_EQL     , KC_UNDS,
-  KC_LSFT         , KC_PERC , KC_CIRC , KC_DLR  , MACRO_2 , KC_GRV  , KC_QUOT , KC_AMPR    , KC_ASTR    , KC_PIPE,
-  KC_LSFT         , KC_LALT , KC_LGUI , KC_TRNS , MO(5)   , KC_DEL  , KC_DEL  , KC_RGUI    , KC_RALT, RSFT_T(KC_BSLS), KC_TRNS, KC_TRNS
- ),
+  [2] = LAYOUT_universal(
+    KC_TAB   , KC_7     , KC_8     , KC_9     , KC_MINS  ,                            KC_NUHS  , _______  , KC_BTN3  , _______  , KC_BSPC  ,
+   S(KC_QUOT), KC_4     , KC_5     , KC_6     ,S(KC_SCLN),                            S(KC_9)  , KC_BTN1  , KC_UP    , KC_BTN2  , KC_QUOT  ,
+    KC_SLSH  , KC_1     , KC_2     , KC_3     ,S(KC_MINS),                           S(KC_NUHS), KC_LEFT  , KC_DOWN  , KC_RGHT  , _______  ,
+    KC_ESC   , KC_0     , KC_DOT   , KC_DEL   , KC_ENT   , KC_BSPC  ,      _______  , _______  , _______  , _______  , _______  , _______
+  ),
 
- [2] = LAYOUT_universal(
-  KC_NO           , KC_LT   , KC_GT   , KC_LCBR , KC_NO   , KC_LEFT , LGUI(KC_LBRC), KC_LBRC, LGUI(KC_RBRC), KC_RBRC,
-  KC_LCTL         , KC_LBRC , KC_2    , KC_3    , KC_HASH , KC_PGDN , KC_BTN1 , KC_NO      , KC_BTN2    , KC_NO,
-  KC_LSFT         , KC_EXLM , KC_RPRN , KC_0    , KC_TRNS , KC_TRNS , KC_NO   , KC_TRNS    , KC_TRNS    , TO(0),
-  KC_TRNS         , KC_TRNS , KC_TRNS , KC_TRNS , MO(2)   , KC_TRNS , KC_TRNS , KC_LGUI    , KC_BSPC    , KC_NO, KC_NO, TO(0)
- ),
-
- [3] = LAYOUT_universal(
-  LALT(KC_7)      , LALT(KC_8), LALT(KC_9), KC_NO, KC_NO, KC_NO, LALT(KC_7), LALT(KC_8), LALT(KC_9), KC_RALT,
-  LALT(KC_4)      , LALT(KC_5), LALT(KC_6), KC_NO, KC_NO, KC_LEFT, KC_UP   , KC_RGHT   , KC_NO      , KC_NO,
-  LALT(KC_1)      , LALT(KC_2), LALT(KC_3), LALT(KC_0), KC_NO, KC_TRNS, KC_BTN1, KC_BTN2, KC_NO, TO(0),
-  KC_TRNS         , KC_LSFT , KC_TRNS , KC_LGUI , KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, RSFT_T(KC_NO), TO(0)
- ),
-
- [4] = LAYOUT_universal(
-  KC_NO           , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_PAST , KC_8    , KC_AMPR    , KC_7       , KC_PSLS,
-  KC_NO           , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_PPLS , KC_5    , KC_DLR     , KC_4       , KC_PEQL,
-  KC_NO           , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_2    , KC_EXLM    , KC_1       , KC_PMNS,
-  KC_NO           , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_ENT  , KC_BSPC , KC_RPRN    , KC_0       , KC_HASH, KC_3, KC_PDOT
- ),
-
-[5] = LAYOUT_universal(
-  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KBC_RST , KBC_SAVE, CPI_I100, CPI_D100, CPI_I1K,
-  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , CPI_D1K , SCRL_TO , SCRL_MO , SCRL_DVI , SCRL_DVD,
-  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , AML_TO  , AML_I50 , AML_D50 , SSNP_VRT , SSNP_HOR,
-  KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO   , KC_NO    , KC_NO, KC_NO, SSNP_FRE
-),
-
+  [3] = LAYOUT_universal(
+    RGB_TOG  , AML_TO   , AML_I50  , AML_D50  , _______  ,                            _______  , _______  , SSNP_HOR , SSNP_VRT , SSNP_FRE ,
+    RGB_MOD  , RGB_HUI  , RGB_SAI  , RGB_VAI  , SCRL_DVI ,                            _______  , _______  , _______  , _______  , _______  ,
+    RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , SCRL_DVD ,                            CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE ,
+    QK_BOOT  , KBC_RST  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , KBC_RST  , QK_BOOT
+  ),
 };
 // clang-format on
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  // Auto enable scroll mode when the highest layer is 3
-  keyball_set_scroll_mode(get_highest_layer(state) == 3);
-  return state;
+    // Auto enable scroll mode when the highest layer is 3
+    keyball_set_scroll_mode(get_highest_layer(state) == 3);
+    return state;
 }
 
 #ifdef OLED_ENABLE
 
-#include "lib/oledkit/oledkit.h"
+#    include "lib/oledkit/oledkit.h"
 
 void oledkit_render_info_user(void) {
-  keyball_oled_render_keyinfo();
-  keyball_oled_render_ballinfo();
-  keyball_oled_render_layerinfo();
+    keyball_oled_render_keyinfo();
+    keyball_oled_render_ballinfo();
+    keyball_oled_render_layerinfo();
 }
 #endif
