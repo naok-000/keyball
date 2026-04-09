@@ -43,15 +43,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Define the number of layers
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
-// 
-#define DOUBLE_PRESS_AUTO_REPEAT_TERM
+// define auto-repeat term for tap and hold keys. 
+#define QUICK_TAP_TERM 0
 
 // Define tap and hold duration
 #define TAPPING_TERM 200
 
 // Make the hold/tap key easier to be recognized as a hold action.
-// #define PERMISSIVE_HOLD
-#define HOLD_ON_OTHER_KEY_PRESS
+#define PERMISSIVE_HOLD
+// #define HOLD_ON_OTHER_KEY_PRESS
 
 // keyball unique configurations 
 // Set default CPI for the trackball
