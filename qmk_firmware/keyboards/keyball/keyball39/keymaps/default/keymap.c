@@ -24,10 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT(
-    LCTL_T(KC_Q)     , KC_W           , KC_E           , KC_R           , KC_T           ,                              KC_Y     , KC_U     , KC_I        , KC_O        , KC_P     ,
-    LCTL_T(KC_A)     , KC_S           , KC_D           , KC_F           , KC_G           ,                              KC_H     , KC_J     , KC_K        , KC_L        , KC_SCLN  ,
-    LSFT_T(KC_Z)     , KC_X           , KC_C           , KC_V           , KC_B           ,                              KC_N     , KC_M     , KC_MS_BTN1  , KC_MS_BTN2  , KC_SLSH  ,
-    LT(3,KC_LCTL)    , LALT_T(KC_DOT) , LGUI_T(KC_COMM),LT(1,KC_LNG1)   , KC_SPC         , LT(4,KC_TAB),     KC_ENT   , KC_BSPC  ,                                        MO(3)    
+    LCTL_T(KC_Q)     , KC_W           , KC_E           , KC_R           , KC_T           ,                              KC_Y     , KC_U     , KC_I        , KC_O        , KC_P           ,
+    LCTL_T(KC_A)     , KC_S           , KC_D           , KC_F           , KC_G           ,                              KC_H     , KC_J     , KC_K        , KC_L        , LT(2,KC_SCLN)  ,
+    LSFT_T(KC_Z)     , KC_X           , KC_C           , KC_V           , KC_B           ,                              KC_N     , KC_M     , KC_MS_BTN1  , KC_MS_BTN2  , KC_SLSH        ,
+    LT(3,KC_ESC)     , LALT_T(KC_DOT) , LGUI_T(KC_COMM),LT(1,KC_LNG1)   , KC_SPC         , LT(4,KC_TAB),     KC_ENT   , KC_BSPC  ,                                        MO(3)    
   ),
 
   [1] = LAYOUT(

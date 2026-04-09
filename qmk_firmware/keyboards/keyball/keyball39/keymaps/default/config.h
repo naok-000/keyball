@@ -43,6 +43,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Define the number of layers
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
+// 
+#define DOUBLE_PRESS_AUTO_REPEAT_TERM
+
 // Define tap and hold duration
 #define TAPPING_TERM 200
 
