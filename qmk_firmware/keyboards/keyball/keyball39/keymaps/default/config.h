@@ -53,6 +53,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PERMISSIVE_HOLD
 // #define HOLD_ON_OTHER_KEY_PRESS
 
+// the tap-hold key is settled as tapped if the two keys are on the same hand. Otherwise, if the keys are on opposite hands, Chordal Hold introduces no new behavior.
+#define CHORDAL_HOLD
+
 // keyball unique configurations 
 // Set default CPI for the trackball
 #define KEYBALL_CPI_DEFAULT 1400
