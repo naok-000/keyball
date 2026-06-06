@@ -20,6 +20,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+#define F_CTL LCTL_T(KC_F)
+#define J_CTL RCTL_T(KC_J)
+
+static bool j_down        = false;
+static bool f_registered  = false;
+static bool f_intercepted = false;
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
@@ -66,6 +73,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 // clang-format on
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case J_CTL:
+            j_down = record->event.pressed;
+            if (!j_down && f_registered) {
+                unregister_code(KC_F);
+                f_registered = false;
+            }
+            return true;
+
+        case F_CTL:
+            if (f_intercepted) {
+                if (!record->event.pressed) {
+                    if (f_registered) {
+                        unregister_code(KC_F);
+                        f_registered = false;
+                    }
+                    f_intercepted = false;
+                }
+                return false;
+            }
+
+            if (record->event.pressed && j_down && (get_mods() & MOD_BIT(KC_RCTL))) {
+                register_code(KC_F);
+                f_registered  = true;
+                f_intercepted = true;
+                return false;
+            }
+
+            return true;
+    }
+
+    return true;
+}
 
 layer_state_t layer_state_set_user(layer_state_t state) {
     // Auto enable scroll mode when the highest layer is 3
