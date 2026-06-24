@@ -48,8 +48,9 @@ See each directories for each keyboards in a table above.
 4. `make` your Keyball firmware.
 
     ```console
-    # Build Keyball39 firmware with "default" keymap
-    $ make SKIP_GIT=yes keyball/keyball39:default
+    # Build Keyball39 firmware with "mac" or "linux" keymap
+    $ make SKIP_GIT=yes keyball/keyball39:mac
+    $ make SKIP_GIT=yes keyball/keyball39:linux
 
     # Build Keyball44 firmware with "default" keymap
     $ make SKIP_GIT=yes keyball/keyball44:default
@@ -58,11 +59,13 @@ See each directories for each keyboards in a table above.
     $ make SKIP_GIT=yes keyball/keyball61:default
     ```
 
-There are three keymaps provided at least:
+There are keymaps provided at least:
 
 * `via` - Standard version with [Remap](https://remap-keys.app/) or VIA to change keymap
 * `test` - Easy-to-use version for checking operation at build time
-* `default` - Base version for creating your own customized firmware
+* `default` - Base version for creating your own customized firmware where provided
+* `mac` - Keyball39 customized keymap for macOS
+* `linux` - Keyball39 customized keymap for Linux
 
 ## How to create your keymap
 

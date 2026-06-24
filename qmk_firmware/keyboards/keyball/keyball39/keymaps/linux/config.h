@@ -43,7 +43,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Define the number of layers
 #define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
-// define auto-repeat term for tap and hold keys. 
+// define auto-repeat term for tap and hold keys.
 #define QUICK_TAP_TERM 0
 
 // Define tap and hold duration
@@ -56,7 +56,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // the tap-hold key is settled as tapped if the two keys are on the same hand. Otherwise, if the keys are on opposite hands, Chordal Hold introduces no new behavior.
 #define CHORDAL_HOLD
 
-// keyball unique configurations 
+// keyball unique configurations
 // Set default CPI for the trackball
 #define KEYBALL_CPI_DEFAULT 1400
 

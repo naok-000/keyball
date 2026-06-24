@@ -31,7 +31,14 @@ jobs:
       matrix:
         keyboard: [ keyball39, keyball44, keyball61, keyball46, one47 ]
         keymap: [ test, default, via ]
+        exclude:
+          - keyboard: keyball39
+            keymap:   default
         include:
+          - keyboard: keyball39
+            keymap:   mac
+          - keyboard: keyball39
+            keymap:   linux
           - keyboard: keyball46
             keymap:   test_Left
           - keyboard: keyball46

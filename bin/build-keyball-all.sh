@@ -21,6 +21,9 @@ mkdir -p ${logdir}
 
 for kb in "${keyboards[@]}" ; do
   tmpmaps=(${keymaps[@]})
+  if [ $kb = keyball39 ] ; then
+    tmpmaps=(test via mac linux)
+  fi
   # Add special keymaps for keyball46
   if [ $kb = keyball46 ] ; then
     tmpmaps+=(test_Left test_Both)

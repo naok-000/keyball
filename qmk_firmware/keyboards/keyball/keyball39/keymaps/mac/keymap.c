@@ -39,10 +39,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define L2_CMD_S_ALT LALT_T(KC_F17)
 #define L2_CMD_EQL_SFT LSFT_T(KC_F17)
 #define L2_CMD_F_CTL LCTL_T(KC_F17)
-#define L2_DOWN_CTL RCTL_T(KC_F17)
-#define L2_UP_SFT RSFT_T(KC_F17)
-#define L2_RIGHT_ALT RALT_T(KC_F17)
-#define L2_NO_GUI RGUI_T(KC_F17)
 
 static bool j_down        = false;
 static bool f_registered  = false;
@@ -52,7 +48,7 @@ static uint16_t l1_esc_timer;
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  // keymap for default (VIA)
+  // keymap for mac
   [0] = LAYOUT(
 	       KC_Q             , KC_W           , KC_E           , KC_R           , KC_T           ,                               KC_Y          , KC_U          , KC_I          , KC_O          , KC_P           ,
 	       LGUI_T(KC_A)     , LALT_T(KC_S)   , LSFT_T(KC_D)   , LCTL_T(KC_F)   , KC_G           ,                               KC_H          , RCTL_T(KC_J)  , RSFT_T(KC_K)  , RALT_T(KC_L)  , RGUI_T(KC_SCLN),
@@ -64,35 +60,35 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	       KC_GRV           , KC_CIRC        , KC_ASTR        , KC_DLR         , KC_PIPE        ,                               KC_QUES       , KC_EXLM       , KC_HASH       , KC_AT         , KC_TILD        ,
 	       L1_QUOT_GUI      , L1_DQUO_ALT    , L1_PLUS_SFT    , L1_EQL_CTL     , KC_AMPR        ,                               KC_MINS       , L1_LCBR_CTL   , L1_LPRN_SFT   , L1_RPRN_ALT   , L1_RCBR_GUI    ,
 	       KC_BSLS          , XXXXXXX        , XXXXXXX        , XXXXXXX        , KC_PERC        ,                               KC_UNDS       , KC_LBRC       , KC_LABK       , KC_RABK       , KC_RBRC        ,
-	       KC_LSFT          , KC_LALT        , KC_LGUI        , MO(1)          , MO(5)          , LGUI_T(KC_DEL), RSFT_T(KC_ENT), KC_DEL      ,                                               KC_RSFT 
+	       KC_LSFT          , KC_LALT        , KC_LGUI        , MO(1)          , MO(5)          , LGUI_T(KC_DEL), RSFT_T(KC_ENT), KC_DEL      ,                                               KC_RSFT
 	       ),
 
   [2] = LAYOUT(
 	       LGUI(KC_Q)       , LGUI(KC_W)     , XXXXXXX        , LSFT(LGUI(KC_R)),LGUI(KC_T)     ,                               LSFT(LGUI(KC_Z)),LGUI(KC_1)   , LGUI(KC_2)    , LGUI(KC_3)    , LGUI(KC_4)     ,
-	       L2_CMD_A_GUI     , L2_CMD_S_ALT   , L2_CMD_EQL_SFT , L2_CMD_F_CTL   , XXXXXXX        ,                               KC_LEFT       , L2_DOWN_CTL   , L2_UP_SFT     , L2_RIGHT_ALT  , L2_NO_GUI      ,
+	       L2_CMD_A_GUI     , L2_CMD_S_ALT   , L2_CMD_EQL_SFT , L2_CMD_F_CTL   , XXXXXXX        ,                               KC_LEFT       , KC_DOWN       , KC_UP         , KC_RIGHT      , XXXXXXX        ,
 	       LGUI(KC_Z)       , LGUI(KC_X)     , LGUI(KC_C)     , LGUI(KC_V)     , XXXXXXX        ,                               XXXXXXX       , LGUI(KC_LBRC) , LSFT(LGUI(KC_LBRC)),LSFT(LGUI(KC_RBRC)),LGUI(KC_RBRC),
-	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX 
+	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX
 	       ),
 
   [3] = LAYOUT(
 	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
 	       KC_LGUI          , LALT(KC_LGUI)  , LSFT(KC_LGUI)  , LCTL(KC_LGUI)  , XXXXXXX        ,                               XXXXXXX       , LGUI(KC_MINS) , LGUI(KC_EQL)  , XXXXXXX       , XXXXXXX        ,
 	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        ,                               XXXXXXX       , XXXXXXX       , KC_MS_BTN1    , KC_MS_BTN2    , XXXXXXX        ,
-	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , MO(5)         ,                                               XXXXXXX 
+	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , MO(5)         ,                                               XXXXXXX
 	       ),
 
   [4] = LAYOUT(
 	       KC_F1            , KC_F2          , KC_F3          , KC_F4          , KC_F5          ,                               XXXXXXX       , KC_7          , KC_8          , KC_9          , XXXXXXX        ,
 	       KC_F6            , KC_F7          , KC_F8          , KC_F9          , KC_F10         ,                               XXXXXXX       , KC_4          , KC_5          , KC_6          , XXXXXXX        ,
 	       KC_F11           , KC_F12         , KC_F13         , KC_F14         , KC_F15         ,                               KC_0          , KC_1          , KC_2          , KC_3          , KC_PDOT        ,
-	       SSNP_FRE         , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   KC_ENT    , KC_BSPC       ,                                               XXXXXXX 
+	       SSNP_FRE         , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   KC_ENT    , KC_BSPC       ,                                               XXXXXXX
 	       ),
 
   [5] = LAYOUT(
 	       KBC_SAVE         , CPI_I100       , CPI_D100       , CPI_I1K        , CPI_D1K        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
 	       SCRL_TO          , SCRL_MO        , SCRL_DVI       , SCRL_DVD       , AML_TO         ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
 	       AML_I50          , AML_D50        , SSNP_VRT       , SSNP_HOR       , KBC_RST        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
-	       SSNP_FRE         , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX 
+	       SSNP_FRE         , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX
 	       ),
 };
 // clang-format on
@@ -159,18 +155,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         case L2_CMD_F_CTL:
             return process_custom_mod_tap(LGUI(KC_F), record);
-
-        case L2_DOWN_CTL:
-            return process_custom_mod_tap(KC_DOWN, record);
-
-        case L2_UP_SFT:
-            return process_custom_mod_tap(KC_UP, record);
-
-        case L2_RIGHT_ALT:
-            return process_custom_mod_tap(KC_RIGHT, record);
-
-        case L2_NO_GUI:
-            return process_custom_mod_tap(KC_NO, record);
 
         case J_CTL:
             j_down = record->event.pressed;

@@ -6,7 +6,8 @@ This archive includes firmwares for Keyball39.
 
 Included variations of firmware are below:
 
-* `default` - base version for customization
+* `mac` - customized version for macOS
+* `linux` - customized version for Linux
 * `test` - used for testing during assembly
 * `via` - Recommended version that can use [Remap][remap]
 
@@ -23,7 +24,8 @@ The recommended usage of these firmwares is:
 
 含まれているファームウェアのバリエーションは以下の通りです:
 
-* `default` - カスタマイズの基礎となる版
+* `mac` - macOS向けのカスタマイズ版
+* `linux` - Linux向けのカスタマイズ版
 * `test` - 組立時のテストに用いる版
 * `via` - [Remap][remap] で利用できる、推奨版
 
