@@ -23,9 +23,32 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define F_CTL LCTL_T(KC_F)
 #define J_CTL RCTL_T(KC_J)
 
+#define L1_ESC LT(1, KC_NO)
+#define L1_ESC_DOUBLE_TAP_TERM 200
+
+#define L1_QUOT_GUI LGUI_T(KC_F16)
+#define L1_DQUO_ALT LALT_T(KC_F16)
+#define L1_PLUS_SFT LSFT_T(KC_F16)
+#define L1_EQL_CTL LCTL_T(KC_F16)
+#define L1_LCBR_CTL RCTL_T(KC_F16)
+#define L1_LPRN_SFT RSFT_T(KC_F16)
+#define L1_RPRN_ALT RALT_T(KC_F16)
+#define L1_RCBR_GUI RGUI_T(KC_F16)
+
+#define L2_CMD_A_GUI LGUI_T(KC_F17)
+#define L2_CMD_S_ALT LALT_T(KC_F17)
+#define L2_CMD_EQL_SFT LSFT_T(KC_F17)
+#define L2_CMD_F_CTL LCTL_T(KC_F17)
+#define L2_DOWN_CTL RCTL_T(KC_F17)
+#define L2_UP_SFT RSFT_T(KC_F17)
+#define L2_RIGHT_ALT RALT_T(KC_F17)
+#define L2_NO_GUI RGUI_T(KC_F17)
+
 static bool j_down        = false;
 static bool f_registered  = false;
 static bool f_intercepted = false;
+static bool l1_esc_tapped = false;
+static uint16_t l1_esc_timer;
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -34,19 +57,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	       KC_Q             , KC_W           , KC_E           , KC_R           , KC_T           ,                               KC_Y          , KC_U          , KC_I          , KC_O          , KC_P           ,
 	       LGUI_T(KC_A)     , LALT_T(KC_S)   , LSFT_T(KC_D)   , LCTL_T(KC_F)   , KC_G           ,                               KC_H          , RCTL_T(KC_J)  , RSFT_T(KC_K)  , RALT_T(KC_L)  , RGUI_T(KC_SCLN),
 	       KC_Z             , KC_X           , KC_C           , KC_V           , KC_B           ,                               KC_N          , KC_M          , KC_MS_BTN1    , KC_MS_BTN2    , KC_SLSH        ,
-	       LT(3,KC_CAPS)    , KC_COMM        , KC_DOT         , LT(1,KC_ESC)   , LT(2,KC_SPC)   , LT(4,KC_TAB),     KC_ENT    , KC_BSPC       ,                                               MO(3)   
+	       LT(3,KC_CAPS)    , KC_COMM        , KC_DOT         , L1_ESC         , LT(2,KC_SPC)   , LT(4,KC_TAB),     KC_ENT    , KC_BSPC       ,                                               MO(3)
 	       ),
 
   [1] = LAYOUT(
 	       KC_GRV           , KC_CIRC        , KC_ASTR        , KC_DLR         , KC_PIPE        ,                               KC_QUES       , KC_EXLM       , KC_HASH       , KC_AT         , KC_TILD        ,
-	       KC_QUOT          , KC_DQUO        , KC_PLUS        , KC_EQL         , KC_AMPR        ,                               KC_MINS       , KC_LCBR       , KC_LPRN       , KC_RPRN       , KC_RCBR        ,
+	       L1_QUOT_GUI      , L1_DQUO_ALT    , L1_PLUS_SFT    , L1_EQL_CTL     , KC_AMPR        ,                               KC_MINS       , L1_LCBR_CTL   , L1_LPRN_SFT   , L1_RPRN_ALT   , L1_RCBR_GUI    ,
 	       KC_BSLS          , XXXXXXX        , XXXXXXX        , XXXXXXX        , KC_PERC        ,                               KC_UNDS       , KC_LBRC       , KC_LABK       , KC_RABK       , KC_RBRC        ,
 	       KC_LSFT          , KC_LALT        , KC_LGUI        , MO(1)          , MO(5)          , LGUI_T(KC_DEL), RSFT_T(KC_ENT), KC_DEL      ,                                               KC_RSFT 
 	       ),
 
   [2] = LAYOUT(
 	       LGUI(KC_Q)       , LGUI(KC_W)     , XXXXXXX        , LSFT(LGUI(KC_R)),LGUI(KC_T)     ,                               LSFT(LGUI(KC_Z)),LGUI(KC_1)   , LGUI(KC_2)    , LGUI(KC_3)    , LGUI(KC_4)     ,
-	       LGUI(KC_A)       , LGUI(KC_S)     , LGUI(KC_EQL)   , LGUI(KC_F)     , XXXXXXX        ,                               KC_LEFT       , KC_DOWN       , KC_UP         , KC_RIGHT      , XXXXXXX        ,
+	       L2_CMD_A_GUI     , L2_CMD_S_ALT   , L2_CMD_EQL_SFT , L2_CMD_F_CTL   , XXXXXXX        ,                               KC_LEFT       , L2_DOWN_CTL   , L2_UP_SFT     , L2_RIGHT_ALT  , L2_NO_GUI      ,
 	       LGUI(KC_Z)       , LGUI(KC_X)     , LGUI(KC_C)     , LGUI(KC_V)     , XXXXXXX        ,                               XXXXXXX       , LGUI(KC_LBRC) , LSFT(LGUI(KC_LBRC)),LSFT(LGUI(KC_RBRC)),LGUI(KC_RBRC),
 	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX 
 	       ),
@@ -74,8 +97,81 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
+static bool process_custom_mod_tap(uint16_t tap_keycode, keyrecord_t *record) {
+    if (record->tap.count) {
+        if (record->event.pressed && tap_keycode != KC_NO) {
+            tap_code16(tap_keycode);
+        }
+        return false;
+    }
+    return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case L1_ESC:
+            if (record->tap.count) {
+                if (record->event.pressed) {
+                    if (l1_esc_tapped && timer_elapsed(l1_esc_timer) <= L1_ESC_DOUBLE_TAP_TERM) {
+                        tap_code(KC_ESC);
+                        l1_esc_tapped = false;
+                    } else {
+                        l1_esc_tapped = true;
+                    }
+                    l1_esc_timer = timer_read();
+                }
+                return false;
+            }
+            return true;
+
+        case L1_QUOT_GUI:
+            return process_custom_mod_tap(KC_QUOT, record);
+
+        case L1_DQUO_ALT:
+            return process_custom_mod_tap(KC_DQUO, record);
+
+        case L1_PLUS_SFT:
+            return process_custom_mod_tap(KC_PLUS, record);
+
+        case L1_EQL_CTL:
+            return process_custom_mod_tap(KC_EQL, record);
+
+        case L1_LCBR_CTL:
+            return process_custom_mod_tap(KC_LCBR, record);
+
+        case L1_LPRN_SFT:
+            return process_custom_mod_tap(KC_LPRN, record);
+
+        case L1_RPRN_ALT:
+            return process_custom_mod_tap(KC_RPRN, record);
+
+        case L1_RCBR_GUI:
+            return process_custom_mod_tap(KC_RCBR, record);
+
+        case L2_CMD_A_GUI:
+            return process_custom_mod_tap(LGUI(KC_A), record);
+
+        case L2_CMD_S_ALT:
+            return process_custom_mod_tap(LGUI(KC_S), record);
+
+        case L2_CMD_EQL_SFT:
+            return process_custom_mod_tap(LGUI(KC_EQL), record);
+
+        case L2_CMD_F_CTL:
+            return process_custom_mod_tap(LGUI(KC_F), record);
+
+        case L2_DOWN_CTL:
+            return process_custom_mod_tap(KC_DOWN, record);
+
+        case L2_UP_SFT:
+            return process_custom_mod_tap(KC_UP, record);
+
+        case L2_RIGHT_ALT:
+            return process_custom_mod_tap(KC_RIGHT, record);
+
+        case L2_NO_GUI:
+            return process_custom_mod_tap(KC_NO, record);
+
         case J_CTL:
             j_down = record->event.pressed;
             if (!j_down && f_registered) {
