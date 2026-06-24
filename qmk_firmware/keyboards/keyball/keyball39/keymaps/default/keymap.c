@@ -31,46 +31,46 @@ static bool f_intercepted = false;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT(
-    KC_Q             , KC_W           , KC_E           , KC_R           , KC_T           ,                              KC_Y          , KC_U          , KC_I          , KC_O          , KC_P           ,
-    LGUI_T(KC_A)     , LALT_T(KC_S)   , LSFT_T(KC_D)   , LCTL_T(KC_F)   , KC_G           ,                              KC_H          , RCTL_T(KC_J)  , RSFT_T(KC_K)  , LALT_T(KC_L)  , LGUI_T(KC_SCLN),
-    KC_Z             , KC_X           , KC_C           , KC_V           , KC_B           ,                              KC_N          , KC_M          , KC_MS_BTN1    , KC_MS_BTN2    , KC_SLSH        ,
-    LT(3,KC_ESC)     , LALT_T(KC_DOT) , LGUI_T(KC_COMM),LT(1,KC_LNG1)   , KC_SPC         , LT(4,KC_TAB),     KC_ENT   , KC_BSPC       ,                                                 MO(3)    
-  ),
+	       KC_Q             , KC_W           , KC_E           , KC_R           , KC_T           ,                               KC_Y          , KC_U          , KC_I          , KC_O          , KC_P           ,
+	       LGUI_T(KC_A)     , LALT_T(KC_S)   , LSFT_T(KC_D)   , LCTL_T(KC_F)   , KC_G           ,                               KC_H          , RCTL_T(KC_J)  , RSFT_T(KC_K)  , LALT_T(KC_L)  , LGUI_T(KC_SCLN),
+	       KC_Z             , KC_X           , KC_C           , KC_V           , KC_B           ,                               KC_N          , KC_M          , KC_MS_BTN1    , KC_MS_BTN2    , KC_SLSH        ,
+	       LT(3,KC_CAPS)    , KC_COMM        , KC_DOT         , LT(1,KC_ESC)   , LT(2,KC_SPC)   , LT(4,KC_TAB),     KC_ENT    , KC_BSPC       ,                                               MO(3)   
+	       ),
 
   [1] = LAYOUT(
-    KC_TAB   , KC_LBRC  , KC_LCBR  , KC_RCBR  , KC_RBRC  ,                                                              KC_QUES  , KC_EXLM  , KC_HASH  , KC_AT    , KC_TILD  ,
-    KC_LCTL  , KC_DQUO  , KC_LPRN  , KC_RPRN  , KC_QUOT  ,                                                              KC_CIRC  , KC_MINS  , KC_EQL   , KC_DLR   , KC_MINS  ,
-    KC_LSFT  , KC_PERC  , KC_GRV   , KC_AMPR  , KC_ASTR  ,                                                              KC_PIPE  , KC_UNDS  , KC_PLUS  , KC_RABK  , KC_BSLS  ,
-    KC_LSFT  , KC_LALT  , KC_LGUI  , _______  , MO(5)    , LGUI_T(KC_DEL)  ,                                 KC_RGUI  , KC_DEL                                    , KC_RSFT  
-  ),
+	       KC_GRV           , KC_CIRC        , KC_ASTR        , KC_DLR         , KC_PIPE        ,                               KC_QUES       , KC_EXLM       , KC_HASH       , KC_AT         , KC_TILD        ,
+	       KC_QUOT          , KC_DQUO        , KC_PLUS        , KC_EQL         , KC_AMPR        ,                               KC_MINS       , KC_LCBR       , KC_LPRN       , KC_RPRN       , KC_RCBR        ,
+	       KC_BSLS          , XXXXXXX        , XXXXXXX        , XXXXXXX        , KC_PERC        ,                               KC_UNDS       , KC_LBRC       , KC_LABK       , KC_RABK       , KC_RBRC        ,
+	       KC_LSFT          , KC_LALT        , KC_LGUI        , MO(1)          , MO(5)          , LGUI_T(KC_DEL), RSFT_T(KC_ENT), KC_DEL      ,                                               KC_RSFT 
+	       ),
 
   [2] = LAYOUT(
-    XXXXXXX  , XXXXXXX  , KC_LABK  , KC_RABK  , XXXXXXX  ,                                                              XXXXXXX  , XXXXXXX  , XXXXXXX        , XXXXXXX        , XXXXXXX  ,
-    KC_LCTL  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              XXXXXXX  , XXXXXXX  , LGUI(KC_LBRC)  , LGUI(KC_RBRC)  , XXXXXXX  ,
-    KC_LSFT  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              XXXXXXX  , XXXXXXX  , KC_MS_BTN1     , KC_MS_BTN2     , XXXXXXX  ,
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , KC_LSFT  , XXXXXXX  , XXXXXXX         ,                                 KC_RGUI  , KC_BSPC  ,                                              XXXXXXX  
-  ),
+	       LGUI(KC_Q)       , LGUI(KC_W)     , XXXXXXX        , LSFT(LGUI(KC_R)),LGUI(KC_T)     ,                               LSFT(LGUI(KC_Z)),LGUI(KC_1)   , LGUI(KC_2)    , LGUI(KC_3)    , LGUI(KC_4)     ,
+	       LGUI(KC_A)       , LGUI(KC_S)     , LGUI(KC_EQL)   , LGUI(KC_F)     , XXXXXXX        ,                               KC_LEFT       , KC_DOWN       , KC_UP         , KC_RIGHT      , XXXXXXX        ,
+	       LGUI(KC_Z)       , LGUI(KC_X)     , LGUI(KC_C)     , LGUI(KC_V)     , XXXXXXX        ,                               XXXXXXX       , LGUI(KC_LBRC) , LSFT(LGUI(KC_LBRC)),LSFT(LGUI(KC_RBRC)),LGUI(KC_RBRC),
+	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX 
+	       ),
 
   [3] = LAYOUT(
-    XXXXXXX  , LALT(KC_7)  , LALT(KC_8)  , LALT(KC_9)  , XXXXXXX     ,                                                  XXXXXXX  , XXXXXXX  , XXXXXXX     , XXXXXXX     , XXXXXXX  ,
-    XXXXXXX  , LALT(KC_4)  , LALT(KC_5)  , LALT(KC_6)  , XXXXXXX     ,                                                  KC_LEFT  , KC_DOWN  , KC_UP       , KC_RIGHT    , XXXXXXX  ,
-    RGB_RMOD , LALT(KC_1)  , LALT(KC_2)  , LALT(KC_3)  , LALT(KC_0)  ,                                                  XXXXXXX  , XXXXXXX  , KC_MS_BTN1  , KC_MS_BTN2  , XXXXXXX  ,
-    XXXXXXX  , XXXXXXX     , XXXXXXX     , XXXXXXX     , XXXXXXX     , XXXXXXX       ,                       XXXXXXX  , XXXXXXX  ,                       XXXXXXX  
-  ),
+	       XXXXXXX          , KC_LGUI        , KC_LGUI        , KC_LGUI        , XXXXXXX        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       KC_LGUI          , LALT(KC_LGUI)  , LSFT(KC_LGUI)  , LCTL(KC_LGUI)  , XXXXXXX        ,                               XXXXXXX       , LGUI(KC_MINS) , LGUI(KC_EQL)  , XXXXXXX       , XXXXXXX        ,
+	       XXXXXXX          , KC_LGUI        , KC_LGUI        , KC_LGUI        , KC_LGUI        ,                               XXXXXXX       , XXXXXXX       , KC_MS_BTN1    , KC_MS_BTN2    , XXXXXXX        ,
+	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   MO(5)     , XXXXXXX       ,                                               XXXXXXX 
+	       ),
 
   [4] = LAYOUT(
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              XXXXXXX  , KC_7     , KC_8     , KC_9     , XXXXXXX  ,
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              XXXXXXX  , KC_4     , KC_5     , KC_6     , XXXXXXX  ,
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              KC_0     , KC_1     , KC_2     , KC_3     , KC_PDOT   ,
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        KC_ENT   , KC_BSPC                                   , XXXXXXX  
-  ),
+	       KC_F1            , KC_F2          , KC_F3          , KC_F4          , KC_F5          ,                               XXXXXXX       , KC_7          , KC_8          , KC_9          , XXXXXXX        ,
+	       KC_F6            , KC_F7          , KC_F8          , KC_F9          , KC_F10         ,                               XXXXXXX       , KC_4          , KC_5          , KC_6          , XXXXXXX        ,
+	       KC_F11           , KC_F12         , KC_F13         , KC_F14         , KC_F15         ,                               KC_0          , KC_1          , KC_2          , KC_3          , KC_PDOT        ,
+	       SSNP_FRE         , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   KC_ENT    , KC_BSPC       ,                                               XXXXXXX 
+	       ),
 
   [5] = LAYOUT(
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              KBC_RST  , KBC_SAVE , CPI_I100 , CPI_D100 , CPI_I1K  ,
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              CPI_D1K  , SCRL_TO  , SCRL_MO  , SCRL_DVI , SCRL_DVD ,
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                                              AML_TO   , AML_I50  , AML_D50  , SSNP_VRT , SSNP_HOR ,
-    XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  , XXXXXXX  ,                                        XXXXXXX  , XXXXXXX  ,                                  SSNP_FRE 
-  ),
+	       KBC_RST          , KBC_SAVE       , CPI_I100       , CPI_D100       , CPI_I1K        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       CPI_D1K          , SCRL_TO        , SCRL_MO        , SCRL_DVI       , SCRL_DVD       ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       AML_TO           , AML_I50        , AML_D50        , SSNP_VRT       , SSNP_HOR       ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       SSNP_FRE         , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX 
+	       ),
 };
 // clang-format on
 
