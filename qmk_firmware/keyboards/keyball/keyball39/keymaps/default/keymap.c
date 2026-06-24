@@ -32,7 +32,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT(
 	       KC_Q             , KC_W           , KC_E           , KC_R           , KC_T           ,                               KC_Y          , KC_U          , KC_I          , KC_O          , KC_P           ,
-	       LGUI_T(KC_A)     , LALT_T(KC_S)   , LSFT_T(KC_D)   , LCTL_T(KC_F)   , KC_G           ,                               KC_H          , RCTL_T(KC_J)  , RSFT_T(KC_K)  , LALT_T(KC_L)  , LGUI_T(KC_SCLN),
+	       LGUI_T(KC_A)     , LALT_T(KC_S)   , LSFT_T(KC_D)   , LCTL_T(KC_F)   , KC_G           ,                               KC_H          , RCTL_T(KC_J)  , RSFT_T(KC_K)  , RALT_T(KC_L)  , RGUI_T(KC_SCLN),
 	       KC_Z             , KC_X           , KC_C           , KC_V           , KC_B           ,                               KC_N          , KC_M          , KC_MS_BTN1    , KC_MS_BTN2    , KC_SLSH        ,
 	       LT(3,KC_CAPS)    , KC_COMM        , KC_DOT         , LT(1,KC_ESC)   , LT(2,KC_SPC)   , LT(4,KC_TAB),     KC_ENT    , KC_BSPC       ,                                               MO(3)   
 	       ),
@@ -52,10 +52,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	       ),
 
   [3] = LAYOUT(
-	       XXXXXXX          , KC_LGUI        , KC_LGUI        , KC_LGUI        , XXXXXXX        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
 	       KC_LGUI          , LALT(KC_LGUI)  , LSFT(KC_LGUI)  , LCTL(KC_LGUI)  , XXXXXXX        ,                               XXXXXXX       , LGUI(KC_MINS) , LGUI(KC_EQL)  , XXXXXXX       , XXXXXXX        ,
-	       XXXXXXX          , KC_LGUI        , KC_LGUI        , KC_LGUI        , KC_LGUI        ,                               XXXXXXX       , XXXXXXX       , KC_MS_BTN1    , KC_MS_BTN2    , XXXXXXX        ,
-	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   MO(5)     , XXXXXXX       ,                                               XXXXXXX 
+	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        ,                               XXXXXXX       , XXXXXXX       , KC_MS_BTN1    , KC_MS_BTN2    , XXXXXXX        ,
+	       XXXXXXX          , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , MO(5)         ,                                               XXXXXXX 
 	       ),
 
   [4] = LAYOUT(
@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	       ),
 
   [5] = LAYOUT(
-	       KBC_RST          , KBC_SAVE       , CPI_I100       , CPI_D100       , CPI_I1K        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
-	       CPI_D1K          , SCRL_TO        , SCRL_MO        , SCRL_DVI       , SCRL_DVD       ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
-	       AML_TO           , AML_I50        , AML_D50        , SSNP_VRT       , SSNP_HOR       ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       KBC_SAVE         , CPI_I100       , CPI_D100       , CPI_I1K        , CPI_D1K        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       SCRL_TO          , SCRL_MO        , SCRL_DVI       , SCRL_DVD       , AML_TO         ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
+	       AML_I50          , AML_D50        , SSNP_VRT       , SSNP_HOR       , KBC_RST        ,                               XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX       , XXXXXXX        ,
 	       SSNP_FRE         , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX        , XXXXXXX       ,   XXXXXXX   , XXXXXXX       ,                                               XXXXXXX 
 	       ),
 };
